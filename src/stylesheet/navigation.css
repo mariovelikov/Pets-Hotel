@@ -1,0 +1,49 @@
+.navigation{
+    position: sticky;
+    position: -webkit-sticky;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: var(--background-start-color);
+    color: #112A46;
+    z-index: 2;
+}
+
+.navigation ul{
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    list-style-type: none;
+    justify-content: end;
+}
+
+.nav-button{
+    font-size: 1.6rem;
+    font-weight: 100;
+    font-family: "DM Sans", sans-serif;
+    position: relative;
+    background-color: transparent;
+    padding: 1rem;
+    border: none;
+    transition: 1s;
+    outline: none;
+    cursor: pointer;
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: #112A46;
+    transition: width 0.5s ease;
+}
+
+.nav-button:hover::after {
+    width: 100%;
+}
