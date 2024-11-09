@@ -6,7 +6,6 @@ import SiteContent from './components/SiteContent';
 function App() {
   const services = useRef(null);
   const aboutUs = useRef(null);
-  // const services = useRef(null);
 
 
   const handleScroll = (sectionRef) =>{
