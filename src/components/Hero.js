@@ -6,6 +6,7 @@ function Hero() {
   const [row1, setRow1] = useState([]);
   const [row2, setRow2] = useState([]);
   const [row3, setRow3] = useState([]);
+  const phoneNumber = "+359 877 209 270";
 
   useLayoutEffect(() => {
     splitImages();
@@ -17,6 +18,10 @@ function Hero() {
     setRow3(dogImgs.slice(8, 12));
   }
 
+  const callFunc = () => {
+    window.location.href = `tel: ${phoneNumber}`
+  }
+
   return (
     <div className='hero-container'>
       <div className="hero-box flex-title-center">
@@ -26,10 +31,10 @@ function Hero() {
           </h3>
           <h5>Перфектният престой за вашия любимец</h5>
         </div>
-        <div className='open-closed'>
+        <button role='menuitem' className='open-closed' onClick={callFunc}>
           <p></p>
-          <h4>+359 877 209 270</h4>
-        </div>
+          <h4>{phoneNumber}</h4>
+        </button>
       </div>
       <div className="hero-box slider">
         <div className='slide-track'>

@@ -32,11 +32,9 @@ function Navigation({handleScroll, services, aboutUs}) {
     <header className='header-navigation'>
 
       <nav ref={menuRef} className='navigation'>
-          <ul className={isOpen ? "nav-ul" : "nav-ul nav-ul-none"}>
-              <li><p className='nav-button' onClick={() => toggleMenu(services)}>Услуги</p></li>
-              <li><p className='nav-button' onClick={() => toggleMenu(aboutUs)}>За Нас</p></li>
-              {/* <button>Галерия</button> */}
-              {/* <li><p className='nav-button' onClick={toggleMenu}>За Контакт</p></li> */}
+          <ul role='menu' className={isOpen ? "nav-ul" : "nav-ul nav-ul-none"}>
+              <li role='none'><p className='nav-button' onClick={() => toggleMenu(services)}>Услуги</p></li>
+              <li role='none'><p className='nav-button' onClick={() => toggleMenu(aboutUs)}>За Нас</p></li>
           </ul>
           <div className={isOpen ? 'nav-icon-none' : "nav-icon"} onClick={toggleMenu}><ion-icon name="menu-outline"></ion-icon></div>
       </nav>
