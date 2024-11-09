@@ -1,0 +1,58 @@
+.about-us-container{
+    padding: 6.6rem;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    font-size: 1.8rem;
+    color: var(--font-color);
+}
+
+.about-us-container .img-box{
+    width: 50%;
+    overflow: hidden;
+}
+
+.about-us-container .img-box img{
+    width: 100%;
+    object-fit:cover;
+}
+
+.about-us-container .text-box{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3.4rem;
+}
+
+.about-us-container .text-box{
+    /* padding: 2rem; */
+}
+
+.about-us-container h5{
+    font-weight: 200;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    font-size: 2.4rem;
+}
+
+.about-us-title{
+    font-size: 2.8rem;
+}
+
+@media screen and (max-width:765px) {
+    .img-box{
+        display: none;
+    }
+
+    .about-us-container .text-box{
+        width: 100%;
+    }
+
+    .about-us-container{
+        justify-content: center;
+        padding: 0;
+        width: 80%;
+    }
+}

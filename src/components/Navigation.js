@@ -1,16 +1,51 @@
 import '../stylesheet/navigation.css'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-function Navigation() {
+function Navigation({handleScroll, services, aboutUs}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = (ref) => {
+    setIsOpen(!isOpen)
+    handleScroll(ref);
+  };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if(isOpen){
+      document.addEventListener("click", handleClickOutside);
+    }else{
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    }
+  }, [isOpen])
+
   return (
-    <nav className='navigation'>
-        <ul>
-            <li><p className='nav-button'>Услуги</p></li>
-            <li><p className='nav-button'>За Нас</p></li>
-            {/* <button>Галерия</button> */}
-            <li><p className='nav-button'>За Контакт</p></li>
-        </ul>
-    </nav>
+    <header className='header-navigation'>
+
+      <nav ref={menuRef} className='navigation'>
+          <ul className={isOpen ? "nav-ul" : "nav-ul nav-ul-none"}>
+              <li><p className='nav-button' onClick={() => toggleMenu(services)}>Услуги</p></li>
+              <li><p className='nav-button' onClick={() => toggleMenu(aboutUs)}>За Нас</p></li>
+              {/* <button>Галерия</button> */}
+              {/* <li><p className='nav-button' onClick={toggleMenu}>За Контакт</p></li> */}
+          </ul>
+          <div className={isOpen ? 'nav-icon-none' : "nav-icon"} onClick={toggleMenu}><ion-icon name="menu-outline"></ion-icon></div>
+      </nav>
+      <div className='nav-container'>
+        <div className='container-content'>
+          <img src="images/drawkit_img.png" alt='хотел за кучета силистра айдемир лого'/>
+        </div>
+      </div>
+    </header>
   )
 }
 
